@@ -1,20 +1,25 @@
 //calcule o mdc de dois números
 
 //sem recursão
-var a = 20
-var b = 10
-while (b!=0){
-    a=b
-    b=a%b
-}
-console.log(a)
-
-//recursão
-function mdc (a, b){
-    if (b==0){
-        return a
-    }else {
-       return mdc(b, a%b)
+const calcularMDC = (a, b) => {
+    while (b !== 0) {
+      const temp = a;
+      a = b;
+      b = temp % b;
     }
-}
-console.log(mdc(55,5))
+    return a;
+  };
+  
+  //recursão
+  const calcularMDCRecursivo = (a, b) => {
+    if (b === 0) {
+      return a;
+    } else {
+      return calcularMDCRecursivo(b, a % b);
+    }
+  };
+  
+  module.exports = {
+    calcularMDC,
+    calcularMDCRecursivo,
+  };
